@@ -611,7 +611,7 @@
 				st,clksrc = <CLK_MPU_PLL1P>;
 				st,pll = <&pll1_cfg1>;
 			};
-
+          /*
 			cfg_2 {
 				hz = <1000000000>;
 				st,clksrc = <CLK_MPU_PLL1P>;
@@ -623,6 +623,7 @@
 				st,clksrc = <CLK_MPU_PLL1P>;
 				st,pll = <&pll1_cfg3>;
 			};
+			*/
 		};
 	};
 
