@@ -132,7 +132,8 @@ ifeq ($(CFG_STM32MP15),y)
 ifeq ($(CFG_STM32MP1_OPTEE_IN_SYSRAM),y)
 $(call force,CFG_STM32MP_PROFILE,secure_and_system_services)
 endif
-CFG_STM32MP_PROFILE ?= system_services
+# 原本为CFG_STM32MP_PROFILE ?= system_services
+CFG_STM32MP_PROFILE = system_services
 ifeq ($(CFG_STM32MP_PROFILE),secure_and_system_services)
 $(call force,CFG_STM32MP1_OPTEE_IN_SYSRAM,y,Required by secure_and_system_services profile)
 else
@@ -213,7 +214,8 @@ $(call force,CFG_WITH_NSEC_GPIOS,n)
 CFG_STM32MP_OPP_COUNT ?= 3
 CFG_STM32_ADC ?= y
 CFG_WITH_PAGER ?= n
-CFG_WITH_TUI ?= y
+#改为n
+CFG_WITH_TUI ?= n     
 endif # CFG_STM32MP13
 
 ifeq ($(CFG_STM32MP15),y)
@@ -314,7 +316,8 @@ ifeq ($(CFG_STM32MP15)-$(CFG_WITH_PAGER),y-y)
 CFG_TZSRAM_START ?= 0x2ffc0000
 CFG_TZSRAM_SIZE  ?= 0x00040000
 endif #CFG_STM32MP15 && CFG_WITH_PAGER
-CFG_TZDRAM_SIZE  ?= 0x800000
+#CFG_TZDRAM_SIZE  ?= 0x02000000
+CFG_TZDRAM_SIZE  ?= 0x00800000
 CFG_TZDRAM_START ?= ($(CFG_DRAM_BASE) + $(CFG_DRAM_SIZE) - $(CFG_TZDRAM_SIZE))
 
 CFG_STM32_BSEC ?= y
@@ -341,6 +344,7 @@ CFG_STM32MP_PROVISIONING ?= y
 CFG_STPMIC1 ?= y
 CFG_STPMIC2 ?= y
 CFG_SYSCFG ?= y
+# CFG_TZC400 ?= y改的
 CFG_TZC400 ?= y
 
 CFG_DRIVERS_I2C ?= $(CFG_STM32_I2C)

@@ -46,17 +46,18 @@
           reg = <0xc0000000  0x10000000>;
     };
 
-     reserved-memory {
+    /* reserved-memory {
                #address-cells = <1>;
                #size-cells = <1>;
                ranges;
-
-               optee_framebuffer: optee-framebuffer@cd000000 {
-                       /* Secure framebuffer memory */
+              
+                optee_framebuffer: optee-framebuffer@cd000000 {
+                       /* Secure framebuffer memory *//*/
                        reg = <0xcd000000 0x1000000>;
                        st,protreg = <TZC_REGION_S_RDWR 0>;
                };
-         };
+             
+         };*/
 
 
 	shadow-prov {
@@ -611,7 +612,7 @@
 				st,clksrc = <CLK_MPU_PLL1P>;
 				st,pll = <&pll1_cfg1>;
 			};
-          /*
+          
 			cfg_2 {
 				hz = <1000000000>;
 				st,clksrc = <CLK_MPU_PLL1P>;
@@ -623,7 +624,7 @@
 				st,clksrc = <CLK_MPU_PLL1P>;
 				st,pll = <&pll1_cfg3>;
 			};
-			*/
+			
 		};
 	};
 
@@ -675,6 +676,10 @@
 		reg = <VOLTD_SCMI_STPMIC1_PWR_SW2>;
 		voltd-supply = <&v3v3_sw>;
 	};
+	scmi_vdd_sd: regulator@e {
+        reg = <VOLTD_SCMI_STPMIC1_LDO5>;
+        regulator-name = "vdd_sd";
+    };
 };
 
 &sdmmc1_io {
@@ -715,9 +720,9 @@
 	};
 };
 
-&tzc400 {
+/*&tzc400 {
 	memory-region = <&optee_framebuffer>;
-};
+};*/
 
 &uart4 {
 	pinctrl-names = "default";
@@ -731,3 +736,4 @@
 	uart-has-rtscts;
 	status = "disabled";
 };
+
