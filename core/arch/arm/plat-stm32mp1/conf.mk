@@ -59,7 +59,9 @@ flavorlist-MP15 = $(flavor_dts_file-157A_DHCOR_AVENGER96) \
 		  $(flavor_dts_file-157F_ED1) \
 		  $(flavor_dts_file-157F_EV1)
 
-flavorlist-MP13 = $(flavor_dts_file-135F_DK)
+flavorlist-MP13 = $(flavor_dts_file-135F_DK) \
+		  stm32mp135f-test.dts \
+		  stm32mp135f-dk-test.dts
 
 # External device tree default path
 CFG_EXT_DTS ?= $(arch-dir)/dts/external-dt/optee
@@ -317,7 +319,7 @@ CFG_TZSRAM_START ?= 0x2ffc0000
 CFG_TZSRAM_SIZE  ?= 0x00040000
 endif #CFG_STM32MP15 && CFG_WITH_PAGER
 #CFG_TZDRAM_SIZE  ?= 0x02000000
-CFG_TZDRAM_SIZE  ?= 0x00800000
+CFG_TZDRAM_SIZE  ?= 0x02000000
 CFG_TZDRAM_START ?= ($(CFG_DRAM_BASE) + $(CFG_DRAM_SIZE) - $(CFG_TZDRAM_SIZE))
 
 CFG_STM32_BSEC ?= y
