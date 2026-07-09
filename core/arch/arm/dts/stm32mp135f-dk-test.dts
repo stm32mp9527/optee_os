@@ -421,9 +421,9 @@
 			frac = <0x1a04>;
 		};
 
-		pll4_vco_600Mhz: pll4-vco-600Mhz {
+		pll4_vco_500Mhz: pll4-vco-500Mhz {
 			src = <CLK_PLL4_HSE>;
-			divmn = <1 49>;
+			divmn = <5 124>;
 		};
 	};
 
@@ -478,15 +478,15 @@
 		};
 	};
 
-	/* VCO = 600.0 MHz => P = 50, Q = 10, R = 50 */
+	/* VCO = 500.0 MHz => P = 125 (ETH1/ETH2/SDMMC), Q = 10, R = 50 (RNG1) */
 	pll4: st,pll@3 {
 		compatible = "st,stm32mp1-pll";
 		reg = <3>;
 		st,pll = <&pll4_cfg1>;
 
 		pll4_cfg1: pll4_cfg1 {
-			st,pll_vco = <&pll4_vco_600Mhz>;
-			st,pll_div_pqr = <11 59 11>;
+			st,pll_vco = <&pll4_vco_500Mhz>;
+			st,pll_div_pqr = <3 49 9>;
 		};
 	};
 
