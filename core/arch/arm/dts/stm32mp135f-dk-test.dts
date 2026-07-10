@@ -138,7 +138,7 @@
 		interrupts-extended = <&exti 59 IRQ_TYPE_EDGE_FALLING>;
 		wakeup-source;
 		st,notif-it-id = <1>;
-		status = "okay";
+		status = "disabled";
 	};
 
 	vin: vin {
@@ -247,7 +247,7 @@
 };
 
 &gpioe {
-	st,protreg = < (TZPROT(15)) >;
+	st,protreg = <0>;
 };
 
 &gpiof {
@@ -255,7 +255,7 @@
 };
 
 &gpioi {
-	st,protreg = < (TZPROT(2) | TZPROT(3)) >;
+	st,protreg = < (TZPROT(3)) >;
 };
 
 &hash {
@@ -325,7 +325,7 @@
 
 &pwr_irq {
 	status = "okay";
-	wakeup-gpios = <&gpiof 8 GPIO_ACTIVE_HIGH>, <&gpioi 3 GPIO_ACTIVE_HIGH>, <0>, <0>, <&gpioi 2 GPIO_PULL_UP>, <0>;
+	wakeup-gpios = <&gpiof 8 GPIO_ACTIVE_HIGH>, <&gpioi 3 GPIO_ACTIVE_HIGH>, <0>, <0>, <0>, <0>;
 };
 
 &pwr_regulators {
